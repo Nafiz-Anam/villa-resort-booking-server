@@ -1,0 +1,198 @@
+<%- include ("./header/header") %>
+	<div id="main-content">
+		<div class="container-fluid">
+			<div class="block-header">
+				<div class="row clearfix">
+					<div class="col-md-6 col-sm-12">
+						<h1>Dashboard</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="icon-star"></i></div>
+								<div class="ml-4">
+									<span>Total Bookings<br><span class="text-white">Today’s Total Earning</span></span>
+									<h4 class="mb-0 font-weight-medium" id="total_booking">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-azura text-white rounded-circle"><i class="icon-bar-chart"></i></div>
+								<div class="ml-4">
+									<span>Last 7 days Total Bookings</span>
+									<h4 class="mb-0 font-weight-medium" id="seven_day_booking">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-orange text-white rounded-circle"><i class="icon-graph"></i></div>
+								<div class="ml-4">
+									<span>This month’s Total Bookings</span>
+									<h4 class="mb-0 font-weight-medium" id="past_month_booking">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-pink text-white rounded-circle"><i class="icon-energy"></i></div>
+								<div class="ml-4">
+									<span>Last Month's Total Bookings</span>
+									<h4 class="mb-0 font-weight-medium" id="last_month_booking">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-indigo text-white rounded-circle"><i class="icon-star"></i></div>
+								<div class="ml-4">
+									<span>Today’s Total Earning<br><span class="text-white">Today’s Total Earning</span></span>
+									<h4 class="mb-0 font-weight-medium" id="today_booking_price">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-azura text-white rounded-circle"><i class="icon-bar-chart"></i></div>
+								<div class="ml-4">
+									<span>Last 7 days Total Earning</span>
+									<h4 class="mb-0 font-weight-medium" id="seven_day_booking_price">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-orange text-white rounded-circle"><i class="icon-graph"></i></div>
+								<div class="ml-4">
+									<span>This month’s Total Earning</span>
+									<h4 class="mb-0 font-weight-medium" id="past_month_price">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-pink text-white rounded-circle"><i class="icon-energy"></i></div>
+								<div class="ml-4">
+									<span>Last Month's Total Earning</span>
+									<h4 class="mb-0 font-weight-medium" id="last_month_price">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<label>Check-in date </label>
+							<input type="date" id="form_date" name="" class="form-control">
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<label>Check-out date </label>
+							<input type="date" name="" id="end_date" class="form-control">
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-6">
+							<button type="button" id="search" name="" value="search" class="btn btn-warning"
+								style="margin-top:30px;">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row clearfix" style="margin-top:10px;">
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-pink text-white rounded-circle"><i class="icon-target"></i></div>
+								<div class="ml-4">
+									<span>No of bookings</span>
+									<h4 class="mb-0 font-weight-medium" id="no_of_booking">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="card">
+						<div class="body">
+							<div class="d-flex align-items-center">
+								<div class="icon-in-bg bg-pink text-white rounded-circle"><i class="icon-target"></i></div>
+								<div class="ml-4">
+									<span>Total Earning</span>
+									<h4 class="mb-0 font-weight-medium" id="total_earning">0</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<script type="c0030ae816e755734a62be3e-text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5e0463c727773e0d832ab358/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+
+	<%- include("./header/footer") %>
+
+
+		<script src="/js/booking/dashboard.js"></script>
+
+		<script>
+
+			$(function () {
+				dashboard.base_url = "<%=baseURL%>";
+
+				dashboard.init();
+			});
+		</script>

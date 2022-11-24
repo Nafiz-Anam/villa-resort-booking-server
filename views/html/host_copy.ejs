@@ -1,0 +1,220 @@
+<%- include('./header/header') %>
+<link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></link>
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Host</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Host</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+<button class="btn btn-sm btn-primary" title="" data-toggle="modal" data-target="#myModal"><i class="icon-plus" aria-hidden="true"></i> Add New</button>
+<a href="#" class="btn btn-sm btn-warning" title="Themeforest"><i class="icon-list"></i> View All</a>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+  <div class="card">
+  <div class="body">
+  <div class="col-lg-12 col-md-12">
+	<form >
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Host Email</label>
+				<input type="text" name="" id="email" class="form-control" placeholder="Search by Host ID">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Host Name</label>
+				<input type="text" name="" class="form-control" placeholder="Search by Host Name">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Contact Number</label>
+				<input type="text" name="" class="form-control" placeholder="Search by Contact Number">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Destination</label>
+				<input type="text" name="" class="form-control" placeholder="Search by Destination">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<button type="button" name="" class="form-control btn btn-warning"  value="Search" style="margin-top:30px;">Search</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+<div class="table-responsive">
+<table class="table table-hover table-custom spacing2" id="host_table_id">
+<thead id="host_table">
+<tr>
+<th>Sr.No</th>
+<th>Host Email</th>
+<th>Name</th>
+<th>Contact Number</th>
+<th>Contact Number(Optional)</th>
+<!-- <th>Assigned villa</th> -->
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="tbody_table">
+<tr>
+<td>1</td>
+<td><span class="list-name">H 0000</span></td>
+<td>Daniel</td>
+<td>8888888888</td>
+<td>9999999999</td>
+<!-- <td>Villa Name</td> -->
+<td>
+	<button type="button" class="btn btn-sm btn-success" title="Edit" data-placement="top" data-toggle="modal" data-target="#myModal1"><i class="icon-pencil"></i></button>
+	<button type="button" class="btn btn-sm btn-danger " title="Delete" data-toggle="tooltip" data-placement="top"><i class="icon-trash"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Host</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        	<div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Host Email</label>
+        			<input type="text" name="" id="add_email" placeholder="Enter Host Email" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Name</label>
+        			<input type="text" name="" id="name" placeholder="Enter Host Name" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number</label>
+        			<input type="text" name="" id="mobile_no" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number(Optional)</label>
+        			<input type="text" name="" id="optional_mobile_no" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Password</label>
+        			<input type="text" name="" id="password" placeholder="Enter Password" class="form-control">
+        		</div>
+        		<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Assign Villa</label>
+        			<select class="form-control" id="select_villa"></select>
+        		</div> -->
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <input type="submit" name=""  id="add_host" value="Add Host" class="btn btn-warning">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Host</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        	<div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Host Email</label>
+        			<input type="text" name="" id="edit_email" value="H 0000" placeholder="Enter Host Email" class="form-control">
+        			<input type="text" name="" id="host_id" value="H 0000" placeholder="Enter Host ID" class="form-control" hidden>
+
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Name</label>
+        			<input type="text" name="" id="edit_name" value="" placeholder="Enter Host Name" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number</label>
+        			<input type="text" name="" id="edit_mobile_no" value="8888888888" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number(Optional)</label>
+        			<input type="text" name="" id="edit_optional_mobile_no" value="9999999999" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Update Password</label>
+        			<input type="text" name="" id="edit_password" placeholder="Enter Password" class="form-control">
+					<span> Note: If you want to update password then change into password input otherwise leave it blank</span>
+        		</div>
+        		<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Assign Villa</label>
+        			<select class="form-control"></select>
+        		</div> -->
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <input type="submit" name="" id="update_host" value="Update Host" class="btn btn-warning">
+      </div>
+
+    </div>
+  </div>
+</div>
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/bundles/libscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/vendorscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/fullcalendarscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/mainscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/js/pages/calendar.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6ba2cc5f8a257c6de622406d-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65a6dd4a699fde21","version":"2021.5.2","r":1,"token":"f79813393a9345e8a59bb86abc14d67d","si":10}'></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+
+<%-include('./header/footer') %>
+
+<script src="/js/accounts/host.js"></script>
+<script>
+
+	$(function () {
+		host.base_url = "<%=baseURL%>";
+        
+		host.init();
+	});
+</script>

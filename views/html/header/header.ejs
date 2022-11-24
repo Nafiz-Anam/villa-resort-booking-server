@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Leestays Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description"
+        content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin dashboard with unlimited possibilities.">
+    <meta name="author" content="GetBootstrap, design by: puffintheme.com">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/vendor/animate-css/vivify.min.css">
+    <link rel="stylesheet" href="/assets/vendor/fullcalendar/fullcalendar.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/49640001ba.js" crossorigin="anonymous"></script>
+    <script src="/js/deleteHelper.js"></script>
+
+    <link rel="stylesheet" href="assets/css/site.min.css">
+</head>
+
+<body class="theme-orange light_version font-krub">
+
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="bar4"></div>
+            <div class="bar5"></div>
+        </div>
+    </div>
+
+
+    <div class="overlay"></div>
+    <div id="wrapper">
+        <nav class="navbar top-navbar">
+            <div class="container-fluid">
+                <div class="navbar-left">
+                    <div class="navbar-btn">
+                        <a href="dashboard"><img src="https://nsdbytes.com/template/oculux/assets/images/icon.svg"
+                                alt="Oculux Logo" class="img-fluid logo"></a>
+                        <button type="button" class="btn-toggle-offcanvas"><i
+                                class="lnr lnr-menu fa fa-bars"></i></button>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div id="navbar-menu">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/view/logout" class="icon-menu"><i class="icon-power"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>
+        </nav>
+        <div id="left-sidebar" class="sidebar">
+            <div class="navbar-brand">
+                <a href="dashboard"><img src="https://nsdbytes.com/template/oculux/assets/images/icon.svg"
+                        alt="Oculux Logo" class="img-fluid logo"><span>Oculux</span></a>
+                <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i
+                        class="lnr lnr-menu icon-close"></i></button>
+            </div>
+            <div class="sidebar-scroll">
+                <div class="user-account">
+                    <div class="user_div">
+                        <img src="../assets/images/user.png" class="user-photo" alt="User Profile Picture">
+                    </div>
+                    <div class="dropdown">
+                        <span>Welcome,</span>
+                        <a href="javascript:void(0);" class="dropdown-toggle user-name"
+                            data-toggle="dropdown"><strong>Louis Pierce</strong></a>
+                        <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
+                            <!-- <li><a href="page-profile.html"><i class="icon-user"></i>My Profile</a></li>
+<li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
+<li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
+<li class="divider"></li> -->
+                            <li><a href="/view/logout"><i class="icon-power"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <nav id="left-sidebar-nav" class="sidebar-nav">
+                    <ul id="main-menu" class="metismenu">
+                        <li class="" id="dashboard_"><a href="dashboard"><i
+                                    class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                        <li class=""id="all_booking" ><a href="booking" ><i class="icon-list"></i><span>All Bookings</span></a></li>
+                        <li class="" id="calendar_"><a href="app-calendar"><i class="icon-calendar"></i><span>Calendar</span></a></li>
+                        <li class="" id="host_"><a href="host"><i class="icon-user"></i><span>Host</span></a></li>
+                        <li class="" id="villa_"><a href="villa"><i class="icon-home"></i><span>Villas</span></a></li>
+                        <li class="" id="destination_"><a href="destination"><i class="icon-home"></i><span>Destination</span></a></li>
+                        <li class="" id="amenities_"><a href="amenities"><i class="icon-list"></i><span>Amenities</span></a></li>
+                        <li class="" id="coupon_"><a href="coupons"><i class="icon-star"></i><span>Coupons</span></a></li>
+                        <li class="" id="blog_"><a href="blogs"><i class="icon-info"></i><span>Blogs</span></a></li>
+                        <li class="" id="review_"><a href="review"><i class="icon-star"></i><span>Review</span></a></li>
+                        <li class="" id="question_"><a href="questions"><i class="icon-list"></i><span>Question Answer</span></a></li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+  <script>
+      
+    
+      $(".metismenu li").click(function(){
+  localStorage.setItem("clicked", $(this).attr("id"));
+});
+var active = localStorage.getItem("clicked") || "dashboard_";//<default
+
+$(".metismenu li").each(function(){
+    $("this").removeClass("active");
+});
+$("#"+active).addClass("active");
+  </script> -->

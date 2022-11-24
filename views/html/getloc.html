@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <h1>Geo Location</h1>
+        <button type="button" onclick="checksupport()">Check</button>
+    </body>
+
+    <script>
+
+        function checksupport() {
+            if(navigator.geolocation){
+                alert("support")
+                navigator.geolocation.getCurrentPosition(mycods)
+            }
+            else {
+                "not suport"
+            }
+        }
+        function mycods(position) {
+            var lat=position.coords.latitude;
+            var long=position.coords.longitude;
+            console.log(lat)
+            console.log(long)
+            
+
+
+        }
+    </script>
+</html>

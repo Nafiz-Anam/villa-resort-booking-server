@@ -1,0 +1,409 @@
+<%- include('./header/header') %>
+  <link rel="stylesheet" href="/assets/vendor/datatables/css/jquery.dataTables.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <div id="main-content">
+    <div class="container-fluid">
+      <div class="block-header">
+        <div class="row clearfix">
+          <div class="col-md-6 col-sm-12">
+            <h1>All Booking</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">All Booking</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-md-6 col-sm-12 text-right hidden-xs">
+            <button class="btn btn-sm btn-primary" title="" data-toggle="modal" data-target="#myModal" id="add_new_booking"><i class="icon-plus" aria-hidden="true"></i> Add New</button>
+            <button class="btn btn-sm btn-warning" title="Themeforest" id="view_all"><i class="icon-list"></i> View
+              All</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Add Booking</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Email</label>
+                    <input type="text" name="" id="add_email" placeholder="Enter  Email" class="form-control">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Name</label>
+                    <input type="text" name="" id="name" placeholder="Enter  Name" class="form-control">
+                  </div>
+                  <div class="col-lg-8 col-md-6 col-sm-12" style="margin-top:10px;">
+                    <label>Contact Number</label>
+                    <input type="text" name="" id="mobile_no" placeholder="Enter Contact Number" class="form-control">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Destination</label>
+                    <select class="form-control" id="select_destination">
+                      <option value="">Select Destination</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Villa</label>
+                    <select class="form-control" id="select_villa">
+                      <option value="">Select Villa</option>
+                    </select>
+                  </div>
+
+
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Check-In Date</label>
+                    <input type="date" class="form-class" id="b_check_in_date" />
+                  </div>
+                  
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Check-Out Date</label>
+                    <input type="date" class="form-class" id="b_check_out_date"/>
+                  </div>
+                  <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <input type="radio" class="form-class" name="ispayfull" id="is_pay_full" value="pay_full">
+                    <lable>Pay Full</lable> <span id="pfull">0</span>
+                    </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    
+                    <input type="radio" class="form-class" name="ispayfull" id="is_pay_advance" value="pay_advance">
+                    <lable>Pay Advance</lable> <span id="padvance">0</span>
+                    
+
+                  </div> -->
+
+                  <div class="col-lg-8 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Guest</label>
+                    <div class="row">
+                      <div class="col-4">
+                      <label>Adult</label> <input type="number" min="0" value="0" id="adult_number" class="form-class">
+                    </div>
+                    <div class="col-4">
+                      <label>Children</label> <input type="number" value="0" id="children_number" class="form-class">
+                    </div> 
+                    <div class="col-4">
+                      <label>Infant</label> <input type="number" value="0" id="infant_number" class="form-class">
+                    </div>
+                     
+                    </div>
+                    <div class="row">
+                      
+                    <div class="col-6 mt-3 float-right">
+                      <button class="form-class btn btn-sm btn-secondary float-right"  id="calculate_price" value="calculate price">Calculate Price</button>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                        <label>Total Booking Price</label>
+                        <input type="number" min="0" name="" value="0" id="total_booking_price" readonly placeholder="Enter  Total Booking Price" class="form-control">
+                      </div>
+                      <div class="col-lg-12 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                        <label>Discount Price</label>
+                        <input type="number" name="" id="discount_amount" value="0" placeholder="Enter  Discount Price"  min="0" class="form-control">
+                      </div>
+                      <div class="col-lg-12 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                        <label>Final booking Price</label>
+                        <input type="number" name="" id="final_booking_price" readonly value="0" placeholder="Enter  Discount Price"  min="0" class="form-control">
+                      </div>
+                      <div class="col-lg-12 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                        <label>Advance Amount</label>
+                        <input type="number" min="0" name="" id="advance_amount" value="0" placeholder="Enter the advance amount" class="form-control">
+                      </div>
+                  
+                      <div class="col-lg-12 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                        <label>Remaining Amount</label>
+                        <input type="number" min="0" name="" id="remaining_amount" readonly value="0" placeholder="Enter the remaining amount" class="form-control">
+                      </div>
+                    </div>
+
+                    <!-- <div class="row">
+                    <div class="col">
+                      Adults <button class="button btn-sm btn-warning row" id="adult_increment">+</button> &nbsp; <span id="adult">0</span> &nbsp; <button class="button btn-sm btn-warning row" id="adult_decrement">-</button>
+                    </div>
+                    <div class="col">
+                      Children <button class="button btn-sm btn-warning row" id="children_increment">+</button> &nbsp; <span id="children">0</span> &nbsp; <button class="button btn-sm btn-warning row" id="children_decrement">-</button>
+                    </div>
+                    <div class="col">
+                      Infants <button class="button btn-sm btn-warning row" id="infant_increment">+</button> &nbsp; <span id="infant">0</span> &nbsp; <button class="button btn-sm btn-warning row" id="infant_decrement">-</button>
+                    </div>
+                  </div> -->
+                  </div>
+                <!-- <div class="row">
+                  <div class="col">
+                  <label>Check-In</label>
+                 
+                  <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+                  <span id='i' class="fa fa-calendar"></span>
+                  <div id='ccc'></div>
+                </div>
+                <div class="row">
+                  <button id="increment">+</button> <span id="count">0</span><button id="decrement">-</button>
+                </div> -->
+                
+           
+                  <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+                    <label>Assign Villa</label>
+                    <select class="form-control" id="select_villa"></select>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" id="book_vill_by_admin">Book Villa</button> -->
+              <input type="submit" name=""  id="add_villa_book" value="Add" class="btn btn-warning">
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="body">
+              <div class="col-lg-12 col-md-12">
+                <form action="#" method="post">
+                  <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                      <label>Booking ID</label>
+                      <input type="text" name="" class="form-control" placeholder="Search by Host ID" id='booking_id'>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                      <label>Guest Name</label>
+                      <input type="text" name="" class="form-control" placeholder="Search by Host Name" id="guest_name">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                      <label>Villa Name</label>
+                      <input type="text" name="" class="form-control" placeholder="Search by Villa Name"
+                        id="villa_name">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                      <label>Contact Number</label>
+                      <input type="text" name="" class="form-control" placeholder="Search by Contact Number"
+                        id="contact_no">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+                      <button type="button" name="" class="form-control btn btn-warning" value="Search"
+                        style="margin-top:30px;" id="search_btn">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-2 col-2">
+              <button class="btn btn-success" style="width: 100%" id="csv_btn">CSV</button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+              <input type="date" name="check_in_date" id="date1" class="form-control">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+              <input type="date" name="check_out_date" id="date2" class="form-control">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-6">
+              <input type="submit" name="" class="form-control btn btn-warning" value="Apply Filter" id="apply_filter">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12" style="margin-top:10px;">
+          <div class="table-responsive">
+            <table class="table table-hover table-custom spacing2" id="booking_table_id">
+              <thead>
+                <tr>
+                  <th>Sr.No</th>
+                  <th>Guest Name</th>
+                  <th>Contact Number</th>
+                  <th>Check-in Date</th>
+                  <th>Check-out Date</th>
+                  <th>Villa Name</th>
+                  <th>Booking Status</th>
+                  <th>Order Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_table">
+                <tr>
+                  <td>1</td>
+                  <td>Daniel</td>
+                  <td>8888888888</td>
+                  <td>1-6-2021</td>
+                  <td>6-6-2021</td>
+                  <td>xyz villa</td>
+                  <td><span class="badge badge-success ml-0 mr-0">Paid</span></td>
+                  <td>25-May-2021 10:30:00</td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-success" title="view" data-placement="top"
+                      data-toggle="modal" data-target="#myModal1"><i class="icon-eye"></i></button>
+                    <a href="booking_details.html"><button type="button" class="btn btn-sm btn-primary"
+                        title="View More" data-toggle="tooltip" data-placement="top"><i
+                          class="icon-magnifier-add"></i></button></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Booking Details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                People :<label id="people"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Booking Price : <label id="booking_price"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Discount Amount : <label id="discount_amount_detail"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Final Booking Price :<label id="final_booking_price_detail"> </label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Advance Amount : <label id="advance_amount_detail"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Remaining Amount : <label id="remaing_amount_detail"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Guest Check-in Time : <label id="guest_check_in_time"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Guest Checkout Time : <label id="guest_checkout_time"></label>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+                Special note by guest : <label id="special_note"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Villa Details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="row">
+              Detail
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <%-include('./header/footer') %>
+    <script src="/assets/vendor/datatables/js/jquery.dataTables.min.js" type="text/javascript">
+
+    </script>
+
+    <script src="/js/booking/villa_book.js"></script>
+    <script>
+
+      $(function () {
+        villa_book.base_url = "<%=baseURL%>";
+
+        villa_book.init();
+      });
+</script>
+
+
+
+<script>
+  function increment(type){
+    var count = parseInt($(`#${type}`).text())
+    count=count+1;
+    $(`#${type}`).html(count)
+  }
+  function decrement(type){
+    var count = parseInt($(`#${type}`).text())
+    if(count>0){
+        count=count-1;
+      $(`#${type}`).html(count)
+
+    }
+  }
+  $(function() {
+  $('#adult_increment').on('click',function(){
+    increment('adult');
+    
+  });
+  $('#adult_decrement').on('click',function(){
+    decrement('adult');
+    
+  });
+  $('#children_increment').on('click',function(){
+    increment('children');
+    
+  });
+  $('#children_decrement').on('click',function(){
+    decrement('children');
+    
+  });
+  $('#infant_increment').on('click',function(){
+    increment('infant');
+    
+  });
+  $('#infant_decrement').on('click',function(){
+    decrement('infant');
+    
+  });
+  
+
+  // $('#subs').on('click',remove);
+  //   $('input[name="daterange"]').daterangepicker({
+  //     opens: 'left'
+  //   }, function(start, end, label) {
+  //     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  //   });
+  });
+  </script>

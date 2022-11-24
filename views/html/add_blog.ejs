@@ -1,0 +1,96 @@
+<%- include('./header/header') %>
+<script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Add Blog</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Add Blog</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+  <div class="card">
+  <div class="body">
+  <div class="col-lg-12 col-md-12">
+	<form action="#" method="post">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+				<label>Blog Image</label>
+				<input type="file" name="" id="blog_image" class="form-control" multiple>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+				<label>Title</label>
+				<input type="text" name="" id="blog_title" class="form-control" placeholder="Title">
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+				<label>Slug</label>
+				<input type="text" name="" id="slug" class="form-control" placeholder="Slug">
+			</div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+        <label>Tags</label>
+        <input type="text" name="" id="blog_tag" class="form-control" placeholder="Type..">
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+        <label>Publish Date</label>
+        <input type="date" name="" id="published_date" class="form-control">
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+        <label>Short Description</label>
+        <textarea rows="3" placeholder="" id="short_description" class="form-control"></textarea>
+      </div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+				<label>Description</label>
+				<textarea cols="80" id="editor1" name="editor1"  rows="10"></textarea>
+  <script>
+    CKEDITOR.replace('editor1', {
+      fullPage: true,
+      extraPlugins: 'docprops',
+      // Disable content filtering because if you use full page mode, you probably
+      // want to  freely enter any HTML content in source mode without any limitations.
+      allowedContent: true,
+      height: 320
+    });
+  </script>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-6 col-6 text-center">
+				<button type="button" name="" id="add_blog" class="btn btn-warning"  value="Add Blog" style="margin-top:30px;"> Add Blog</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/bundles/libscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/vendorscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/fullcalendarscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/mainscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/js/pages/calendar.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6ba2cc5f8a257c6de622406d-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65a6dd4a699fde21","version":"2021.5.2","r":1,"token":"f79813393a9345e8a59bb86abc14d67d","si":10}'></script>
+<%- include('./header/footer') %>
+
+<script src="/js/info/add_blog.js"></script>
+<script>
+
+	$(function () {
+		addblog.base_url = "<%=baseURL%>";
+        
+		addblog.init();
+	});
+</script>

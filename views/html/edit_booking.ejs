@@ -1,0 +1,173 @@
+<%- include('./header/header') %>
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Booking Details</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Booking Details</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+<!-- <button class="btn btn-sm btn-primary" title=""><i class="icon-pencil" aria-hidden="true"></i> Edit</button>
+<button type="button" class="btn btn-sm btn-warning" title="Themeforest" id="resend_mail"><i class="icon-list"></i> resend booking confirmation</button> -->
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+  <div class="card">
+  <div class="body">
+  <div class="col-lg-12 col-md-12">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+				<label style="font-weight:bold;">Booking ID :</label>
+        <input type="text" name="" id="booking_id" class="form-control" disabled>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Order date and time :</label>
+        <input type="datetime-local" name="" id="order_date" class="form-control">
+        <!-- <input type="time" name="" id="order_time" class="form-control"> -->
+      </div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Booking Status :</label>
+        <select class="form-control" id="booking_status"> 
+          <option value="Paid">Paid</option>
+          <option value="Partially paid">Partially paid</option>
+          <option value="On-hold">On-hold</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Postponed">Postponed</option>
+          <option value="Refunded">Refunded</option>
+          <option value="Failed">Failed</option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Total Booking price :</label>
+        <input type="text" name="" id="booking_price" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Discount Amount :</label>
+        <input type="text" name="" id="discount_amount" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Final Booking price :</label>
+        <input type="text" name="" id="final_booking_price" class="form-control" >
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Advance amount :</label>
+        <input type="text" name="" id="advance_amount" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Remaining amount :</label>
+        <input type="text" name="" id="remaining_amount" class="form-control" readonly>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest Check-in Time :</label>
+        <input type="time" name="" id="guest_check_in_time" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest Check-out Time :</label>
+        <input type="time" name="" id="guest_check_out_time" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Villa Name :</label>
+        <select id="villa_name" class="form-control">
+          
+        </select>
+        <!-- <input type="text" name="" id="villa_name" class="form-control">
+        <input type="text" name="" id="villa_id" class="form-control" hidden> -->
+
+      </div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Payment mode :</label>
+        <select class="form-control" id="payment_mode">
+          <option value="Cash">Cash</option>
+          <option value="Online">Online</option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Payment ID :</label>
+        <input type="text" name="" id="payment_id" class="form-control" disabled>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Customer IP :</label>
+        <input type="text" name="" id="customer_ip" class="form-control" disabled>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Check-in date :</label>
+        <input type="date" name="" id="check_in_date" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Check-out date :</label>
+        <input type="date" name="" id="check_out_date" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest name :</label>
+        <input type="text" name="" id="guest_name" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Email :</label>
+        <input type="email" name="" id="guest_email" class="form-control">
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Contact Number :</label>
+        <input type="text" name="" id="guest_mobile_no" class="form-control">
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Address :</label><br>
+        <textarea class="form-control" rows="3" id="guest_address"></textarea>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Special note by guest :</label><br>
+        <textarea class="form-control" rows="3" id="special_note_guest"></textarea>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center" style="margin-top:20px;">
+        <button type="button" name="" id="save_changes" class="btn btn-warning" value="Save Changes">Save Changes</button>
+      </div>
+		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/bundles/libscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/vendorscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/fullcalendarscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/mainscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/js/pages/calendar.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6ba2cc5f8a257c6de622406d-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65a6dd4a699fde21","version":"2021.5.2","r":1,"token":"f79813393a9345e8a59bb86abc14d67d","si":10}'></script>
+<%- include('./header/footer') %>
+
+<script src="/js/booking/edit_booking.js"></script>
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    var id = getUrlParameter('id');
+    $(function () {
+      edit_booking.base_url = "<%=baseURL%>";
+      edit_booking.id = id;
+      edit_booking.init();
+
+    });
+</script>

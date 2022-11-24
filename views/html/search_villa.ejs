@@ -1,0 +1,209 @@
+<%- include ("./header/header") %>
+<link href="/assets/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/libs/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" /> -->
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Villa</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Villa</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+<a href="addvilla"><button class="btn btn-sm btn-primary" title="" data-toggle="modal"><i class="icon-plus" aria-hidden="true"></i> Add New</button></a>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+  <div class="card">
+  <div class="body">
+  <div class="col-lg-12 col-md-12">
+	<form action="#" method="post">
+		<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Villa ID</label>
+				<input type="text" name="" class="form-control" id="search_villa_id" value="" placeholder="Search by Villa ID">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Villa Name</label>
+				<input type="text" name="" class="form-control" id="search_villa_name" value="" placeholder="Search by Villa Name">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<label>Destination</label>
+				<input type="text" name="" class="form-control" id="search_destiantion" value="" placeholder="Search by Destination">
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-6 col-6">
+				<button type="button" id="search_button" name="" class="btn btn-warning"  value="Search" style="margin-top:30px;">Search</button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+<div class="table-responsive">
+<table class="table table-hover table-custom spacing2" id="villa_table_id">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Vills Name</th>
+<th>Photo</th>
+<th>Status</th>
+<th>Destination</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="table_body">
+	<% for(var i =0; i<data.length;i++) { %>
+<tr>
+<td>1</td>
+<td>Daniel</td>
+<td><img src="" width="100px" height="100px"></td>
+
+<td><span class="badge badge-success ml-0 mr-0">Active</span></td>
+<td>dfgn xcjn ndfjn ndfn</td>
+<td>
+	<a href="villa_details"><button type="button" class="btn btn-sm btn-success" title="Edit" data-placement="top"><i class="icon-pencil"></i></button></a>
+	<button type="button" class="btn btn-sm btn-danger " title="Delete" data-toggle="tooltip" data-placement="top"><i class="icon-trash"></i></button>
+</td>
+</tr>
+	<%}%>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Host</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        	<div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Host ID</label>
+        			<input type="text" name="" placeholder="Enter Host ID" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Name</label>
+        			<input type="text" name="" placeholder="Enter Host Name" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number</label>
+        			<input type="text" name="" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number(Optional)</label>
+        			<input type="text" name="" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Assign Villa</label>
+        			<select class="form-control"></select>
+        		</div>
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <input type="submit" name="" value="Add Host" class="btn btn-warning">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Host</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        	<div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Host ID</label>
+        			<input type="text" name="" value="H 0000" placeholder="Enter Host ID" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Name</label>
+        			<input type="text" name="" value="" placeholder="Enter Host Name" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number</label>
+        			<input type="text" name="" value="8888888888" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Contact Number(Optional)</label>
+        			<input type="text" name="" value="9999999999" placeholder="Enter Contact Number" class="form-control">
+        		</div>
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Assign Villa</label>
+        			<select class="form-control"></select>
+        		</div>
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <input type="submit" name="" value="Add Host" class="btn btn-warning">
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- <script src="/assets/libs/datatables/jquery.dataTables.min.js"></script>
+<script src="/assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables/dataTables.responsive.min.js"></script>
+<script src="/assets/libs/datatables/responsive.bootstrap4.min.js"></script> -->
+<!-- <script src="/assets/libs/datatables/dataTables.buttons.min.js"></script>
+        <script src="/assets/libs/datatables/buttons.bootstrap4.min.js"></script>
+        <script src="/assets/libs/datatables/dataTables.keyTable.min.js"></script>
+        <script src="/assets/libs/datatables/dataTables.select.min.js"></script>
+        <script src="/assets/libs/jszip/jszip.min.js"></script>
+        <script src="/assets/libs/pdfmake/pdfmake.min.js"></script>
+        <script src="/assets/libs/pdfmake/vfs_fonts.js"></script>
+        <script src="/assets/libs/datatables/buttons.html5.min.js"></script>
+        <script src="/assets/libs/datatables/buttons.print.min.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+      <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+<%- include("./header/footer") %>
+
+

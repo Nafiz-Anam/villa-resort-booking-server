@@ -1,0 +1,92 @@
+const mongoose = require("mongoose")
+
+var bookingSchema = new mongoose.Schema({
+
+    villa:{
+        type:mongoose.Types.ObjectId,
+        ref:'villas'
+    },
+    host:{
+        type:mongoose.Types.ObjectId,
+        ref:'users'
+    },
+    user:{
+        type:mongoose.Types.ObjectId,
+        ref:'users'
+    },
+    booking_id:{
+        type:String,
+        index:true,
+        unique:true,
+        trim:true
+    },
+    status:String,
+    check_in_date:String,
+    check_out_date:String,
+    contact_number:String,
+    booking_status:{
+        type:String,
+        enum:['Paid','Partially paid','On-hold','Cancelled','Postponed','Refunded','Failed'],
+        default:'Paid'
+    },
+    order_date:Date,
+    order_time:String,
+    adult_person:{
+        type:Number
+    },
+    children:{
+        type:Number
+    },
+    infants:{
+        type:Number
+    },
+    booking_price:Number,
+    discount_amount:Number,
+    final_booking_price:Number,
+    advance_amount:Number,
+    remaining_amount:Number,
+    guest_check_in_time:{
+        type:String,
+        default:""
+    },
+    guest_check_out_time:{
+        type:String,
+        default:""
+    },
+    special_note_guest:{
+        type:String,
+        default:""
+    },
+    payment_mode:{
+        type:String,
+        default:"Online"
+    },
+    payment_id:String,
+    order_id:String,
+    transaction_id:String,
+    customer_ip:String,
+    guest_name:String,
+    guest_email:String,
+    guest_mobile_no:String,
+    guest_address:{
+        type:String,
+        default:""
+    },
+    total_guest:Number,
+    villa_name:String,
+    coupon:{
+        type:mongoose.Types.ObjectId,
+        ref:"coupon"
+    },
+    is_active:{
+        type:Boolean,
+        default:true
+    },
+    is_deleted:{
+        type:Boolean,
+        default:false
+    }     
+},{timestamps:true})
+
+const bookModel = mongoose.model("booking",bookingSchema)
+module.exports=bookModel

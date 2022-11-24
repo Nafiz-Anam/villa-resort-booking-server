@@ -1,0 +1,297 @@
+<%- include("./header/header") %>
+<style>
+	.delete-btn-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+.v-images:hover .delete-btn-image {
+	background-color: red;
+	display: inline;
+}
+.v-images .delete-btn-image {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 12px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  display: none;
+}
+.v-images img {
+  width: 100%;
+  height: auto;
+}
+.v-image-main{
+  position: relative;
+  width: 50%;
+  
+}
+</style>
+<script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Villa Detail</h1>
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="/view/dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page"> Villa Detail</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right" id="edit_villa_id">
+	
+</div>
+</div>
+</div>
+
+<div class="row clearfix">
+<div class="col-md-12">
+<div class="card">
+<div class="body">
+<div class="row clearfix">
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Villa ID : </label>
+	<label id="villa_id">FDHG243</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Villa Name : </label>
+	<label id="villa_name">fgu nxgfns</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Destination : </label>
+	<label id="villa_destination">fmfdm vm mxv</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Permalink : </label>
+	<label id="permalink"></label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">No. Of Rooms : </label>
+	<label id="no_of_rooms">6</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">No. Of Beds : </label>
+	<label id="no_of_beds">4</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">No. Of Bathrooms : </label>
+	<label id="no_if_bathrooms">5</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">No. Of Kitchens : </label>
+	<label id="no_of_kitchens">2</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Standard capacity : </label>
+	<label id="standard_capacity">6</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Extra person price beyond standard capacity : </label>
+	<label id="extra_person_price">3000</label>
+	
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Max capacity : </label>
+	<label id="max_capacity">6</label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Host : </label>
+	<label id="host"></label>
+</div>
+<div class="col-lg-6 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Sun To Fri : </label>
+	<label id="weekday_price"></label>
+</div>
+<div class="col-lg-6 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Saturday Price : </label>
+	<label id="weekend_price"></label>
+</div>
+<div class="col-lg-6 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Sun To Fri Extra Person : </label>
+	<label id="weekday_extra_adult"></label>
+</div>
+<div class="col-lg-6 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Saturday Price Extra Person: </label>
+	<label id="weekend_extra_adult"></label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Check-in Time : </label>
+	<label id="check_in_time">01:15 PM</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Check-out Time : </label>
+	<label id="check_out_time">01:15 PM</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Build Up Area : </label>
+	<label id="build_up_area">cdf mmb mdmr</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;" id="amenities">
+<label style="font-weight:bold;">Amenities : </label><br>
+<!-- <label>1)Swimming pool
+2)Air conditioning</label> -->
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">You Tube Video Link : </label>
+	<label id="you_tube_link"></label>
+</div>
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Partial Payment : </label>
+	<label id="partial_payment"></label>
+</div>
+<div class="col-lg-8 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;"> Villa Information Text: </label>
+	<label id="villa_info_text"></label>
+</div>
+
+
+<div class="col-lg-12 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Description : </label>
+	<label id="description"></label>
+</div> 
+</div>
+<div class="row">
+	<label style="font-weight:bold; padding-left: 13px;">Nearby Places : </label>
+	<span id="nearby_places"></span>
+<div class="col" style="margin-top:10px;">
+	<label id="nearby_places1"></label>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Is government ID mandatory : </label>
+	<label id="is_goverment">No</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Is smoking allowed? </label>
+	<label id="is_smoking">No</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Is drinking allowed? </label>
+	<label id="is_drinking">Yes</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Is infants allowed? </label>
+	<label id="is_infants">Yes</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Is pets allowed? </label>
+	<label id="is_pets_allowed">Yes</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Villa Status : </label>
+	<label id="villa_status">Active</label>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-10 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Additional rules :</label>
+	<label id="additional_rule"></label>
+</div>
+
+<!-- <div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Host Name : </label>
+	<label>Xyz Abc</label>
+</div>
+
+<div class="col-lg-4 col-md-12" style="margin-top:10px;">
+	<label style="font-weight:bold;">Host Language : </label>
+	<label>Hindi</label>
+</div> -->
+
+<div class="col-lg-12 col-md-12" style="margin-top:10px;" id="youtube_video_bannner">
+	<label style="font-weight:bold;">You tube video banner</label>
+	<br>
+	
+</div>
+<div class="col-lg-12 col-md-12" style="margin-top:10px;" id="villa_photos">
+	<label style="font-weight:bold;">Photos Of Villa</label>
+	<br>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+	<label style="font-weight:bold;" id="faq">FAQ’s :</label><br>
+</div>
+
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/bundles/libscripts.bundle.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="assets/bundles/vendorscripts.bundle.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/jquery-inputmask/jquery.inputmask.bundle.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/jquery.maskedinput/jquery.maskedinput.min.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/multi-select/js/jquery.multi-select.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../assets/vendor/nouislider/nouislider.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="assets/bundles/mainscripts.bundle.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="assets/js/pages/forms/advanced-form-elements.js" type="b32e292bda07a6c0874b989a-text/javascript"></script>
+<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="b32e292bda07a6c0874b989a-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65a6dea5a911de6e","version":"2021.5.2","r":1,"token":"f79813393a9345e8a59bb86abc14d67d","si":10}'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+</body>
+</html>
+
+<script src="/js/info/villa_detail.js"></script>
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    var id = getUrlParameter('id');
+    $(function () {
+        villadetail.base_url = "<%=baseURL%>";
+        villadetail.id = id;
+        villadetail.init();
+
+    });
+</script>

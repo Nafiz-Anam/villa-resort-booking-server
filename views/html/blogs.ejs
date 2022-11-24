@@ -1,0 +1,67 @@
+<%-include ('./header/header') %>
+<script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+<link rel="stylesheet" href="/assets/vendor/datatables/css/jquery.dataTables.min.css">
+
+
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Blogs</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Blogs</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+<a href="addblog"><button class="btn btn-sm btn-primary" title="" id="add_new_blog"><i class="icon-plus" aria-hidden="true"></i> Add New</button></a>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+<div class="table-responsive">
+<table class="table table-hover table-custom spacing2" id="blog_table_id">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Title</th>
+<th>Published</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="table_body">
+<tr>
+<td>1</td>
+<td>test title</td>
+<td>True</td>
+<td>
+	<a href="edit_blog.html"><button type="button" class="btn btn-sm btn-success" title="Edit"><i class="icon-pencil"></i></button></a>
+	<button type="button" class="btn btn-sm btn-danger " title="Delete" data-toggle="tooltip" data-placement="top"><i class="icon-trash"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+
+
+<%- include('./header/footer') %>
+<script src="/assets/vendor/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script> 
+
+<script src="/js/info/blog_list.js"></script>
+<script>
+
+	$(function () {
+		blog_list.base_url = "<%=baseURL%>";
+        
+		blog_list.init();
+	});
+</script>

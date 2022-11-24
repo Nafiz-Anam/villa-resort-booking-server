@@ -1,0 +1,194 @@
+<%-include('./header/header') %>
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Booking Details</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Booking Details</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs" id="edit_booking">
+<button type="button" class="btn btn-sm btn-warning" title="Themeforest" id="resend_mail"><i class="icon-list"></i> resend booking confirmation</button>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+  <div class="card">
+  <div class="body">
+  <div class="col-lg-12 col-md-12">
+		<div class="row">
+      
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+				<label style="font-weight:bold;">Booking Detail</label>
+        <label  id=""></label>
+			</div>
+      
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+				<label style="font-weight:bold;">Guest Detail</label>
+        <label  id=""></label>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+				<label style="font-weight:bold;">Payment Detail</label>
+        <label  id=""></label>
+			</div>
+
+      </div>
+      <div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+				<label style="font-weight:bold;">Booking ID :</label>
+        <label  id="booking_id"></label>
+			</div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest name :</label>
+        <label id="guest_name"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Payment ID :</label>
+        <label id="payment_id"></label>
+      </div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Order date and time :</label>
+        <label id="order_date"></label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Email :</label>
+        <label id="guest_email"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Payment mode :</label>
+        <label id="payment_mode"></label>
+      </div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Booking Status :</label>
+        <label><span class="badge badge-success ml-0 mr-0" id="booking_status"></span></label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Contact Number :</label>
+        <label id="guest_mobile_no"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Total Booking price :</label>
+        <label id="booking_price"> Rs</label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Villa Name :</label>
+        <label id="villa_name"></label>
+      </div>
+      
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Customer IP :</label>
+        <label id="customer_ip">123:23:34:56</label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Discount Amount :</label>
+        <label id="discount_amount"> Rs</label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Check-in date :</label>
+        <label id="check_in_date"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest Check-in Time :</label>
+        <label id="guest_check_in_time"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Final Booking price :</label>
+        <label id="final_booking_price"> Rs</label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Check-out date :</label>
+        <label id="check_out_date"></label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Guest Check-out Time :</label>
+        <label id="guest_check_out_time"></label>
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Advance amount :</label>
+        <label id="advance_amount"> Rs</label>
+      </div>
+      
+      <!-- modified  -->
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Total guest :</label>
+        <label id="total_guest"></label>
+      </div>
+      
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Address :</label><br>
+        <label id="guest_address"></label>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Remaining amount :</label>
+        <label id="remaining_amount"> Rs</label>
+      </div>
+      
+			
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+      </div>
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+      </div>
+      
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        <label style="font-weight:bold;">Special note by guest :</label><br>
+        <label id="special_note_guest"></label>
+      </div>
+		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/bundles/libscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/vendorscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/fullcalendarscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/bundles/mainscripts.bundle.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="assets/js/pages/calendar.js" type="6ba2cc5f8a257c6de622406d-text/javascript"></script>
+<script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="6ba2cc5f8a257c6de622406d-|49" defer=""></script><script defer src="../../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65a6dd4a699fde21","version":"2021.5.2","r":1,"token":"f79813393a9345e8a59bb86abc14d67d","si":10}'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<%-('./header/footer') %>
+
+<script src="/js/booking/booking_details.js"></script>
+<script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    var id = getUrlParameter('id');
+    $(function () {
+      booking_detail.base_url = "<%=baseURL%>";
+      booking_detail.id = id;
+      booking_detail.init();
+
+    });
+</script>

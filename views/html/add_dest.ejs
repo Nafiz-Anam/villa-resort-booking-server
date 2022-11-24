@@ -1,0 +1,219 @@
+<%-include('./header/header') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+<link rel="stylesheet" href="/assets/vendor/datatables/css/jquery.dataTables.min.css">
+
+<div id="main-content">
+<div class="container-fluid">
+<div class="block-header">
+<div class="row clearfix">
+<div class="col-md-6 col-sm-12">
+<h1>Destinations</h1>
+<nav aria-label="breadcrumb">
+ <ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+<li class="breadcrumb-item active" aria-current="page">Destinations</li>
+</ol>
+</nav>
+</div>
+<div class="col-md-6 col-sm-12 text-right hidden-xs">
+<button class="btn btn-sm btn-primary" title="" data-toggle="modal" data-target="#myModal"><i class="icon-plus" aria-hidden="true"></i> Add New</button>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-12">
+<div class="table-responsive">
+<table class="table table-hover table-custom spacing2" id="dest_table">
+<thead>
+<tr>
+<th width="5%">Sr.No</th>
+<th style="text-transform: capitalize;">destination</th>
+<th>Image</th>
+<th>Description</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="dest_tbody">
+<tr>
+<td width="5%">1</td>
+<td style="text-transform: capitalize;"><span class="list-name">H 0000</span></td>
+<td>Flat Discount</td>
+<td>350</td>
+<td>
+	<button type="button" class="btn btn-sm btn-success" title="Edit" data-placement="top" data-toggle="modal" data-target="#myModal1"><i class="icon-pencil"></i></button>
+	<button type="button" class="btn btn-sm btn-danger " title="Delete" data-toggle="tooltip" data-placement="top"><i class="icon-trash"></i></button>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add New Destination</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        	<div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Destination </label>
+        			<input type="text" name="" placeholder="Enter Destination " id="add_destination" class="form-control">
+        		</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Image </label>
+        			<input type="file" name=""  id="add_destination_img" placeholder="Enter Destination " class="form-control">
+        		</div>
+        		<div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+              <label>Short Description</label>
+              <textarea cols="80" id="add_short_description" name="add_short_description"  rows="10"></textarea>
+            <script>
+               CKEDITOR.replace('add_short_description', {
+               fullPage: true,
+                 extraPlugins: 'docprops',
+            // Disable content filtering because if you use full page mode, you probably
+            // want to  freely enter any HTML content in source mode without any limitations.
+                   allowedContent: true,
+                height: 320
+                 });
+               </script>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+              <label> Description</label>
+              <textarea cols="80" id="add_description" name="add_description"  rows="10"></textarea>
+            <script>
+               CKEDITOR.replace('add_description', {
+               fullPage: true,
+                 extraPlugins: 'docprops',
+            // Disable content filtering because if you use full page mode, you probably
+            // want to  freely enter any HTML content in source mode without any limitations.
+                   allowedContent: true,
+                height: 320
+                 });
+               </script>
+            </div>
+           
+            
+        
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <button type="button" id="add_destination_button" name="" value="Add Destination" class="btn btn-warning"> Add Destination</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Destination</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="row">
+        		<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+        			<label>Destination </label>
+              <input type="text" id="dest_id" hidden>
+        			<input type="text" name="" placeholder="Enter Destination " id="edit_destination" class="form-control">
+        		</div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin-top:10px;">
+              <div class="row">
+                <div class="col-lg-8">
+                  <label>Image </label>
+                  <input type="file" name="" id="destination_img" placeholder="Enter Destination " id="edit_destination_img" class="form-control">
+                </div>
+                <div class="col-lg-4">
+        			
+                    <img src="" id="show_img" height="100px" width="100px">
+                    <!-- <input type="file" name="" placeholder="Enter Destination " class="form-control"> -->
+                  
+                </div>
+              </div>
+        			
+        		</div>
+   
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+              <label>Short Description</label>
+              <textarea cols="80" id="edit_short_description" name="edit_short_description"  rows="10"></textarea>
+            <script>
+               CKEDITOR.replace('edit_short_description', {
+               fullPage: true,
+                 extraPlugins: 'docprops',
+            // Disable content filtering because if you use full page mode, you probably
+            // want to  freely enter any HTML content in source mode without any limitations.
+                   allowedContent: true,
+                height: 320
+                 });
+               </script>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="margin-top:10px;">
+              <label> Description</label>
+              <textarea cols="80" id="edit_description" name="edit_description"  rows="10"></textarea>
+            <script>
+               CKEDITOR.replace('edit_description', {
+               fullPage: true,
+                 extraPlugins: 'docprops',
+            // Disable content filtering because if you use full page mode, you probably
+            // want to  freely enter any HTML content in source mode without any limitations.
+                   allowedContent: true,
+                height: 320
+                 });
+               </script>
+            </div>
+           
+            
+          
+          
+        
+        	</div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        <input type="submit" name="" value="Save Changes" class="btn btn-warning" id="update_dest">
+      </div>
+
+    </div>
+  </div>
+</div>
+<%-include('./header/footer') %>
+
+<script src="/assets/vendor/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script> 
+<script src="/js/info/add_dest.js"></script>
+<script>
+
+	$(function () {
+		addDest.base_url = "<%=baseURL%>";
+        
+		addDest.init();
+	});
+</script>
